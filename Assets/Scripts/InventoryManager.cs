@@ -1,6 +1,5 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
@@ -10,9 +9,13 @@ public class InventoryManager : MonoBehaviour
     public List<InventorySlot> slots = new List<InventorySlot>();
     private bool isOpened;
     public float reachDistance = 1000;
-
     private Camera mainCamera;
-    // Start is called before the first frame update
+
+    private void Awake()
+    {
+        UIPanel.SetActive(true);
+    }
+
     void Start()
     {
         mainCamera = Camera.main;
@@ -27,7 +30,7 @@ public class InventoryManager : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.I))
         {
             isOpened = !isOpened;
             if (isOpened)
@@ -42,15 +45,18 @@ public class InventoryManager : MonoBehaviour
 
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
+        
         if (Physics.Raycast(ray, out hit, reachDistance))
         {
-            Debug.DrawRay(ray.origin,ray.direction * reachDistance,Color.green);
-            if(hit.collider.gameObject.GetComponent<item>() != null)
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                AddItem(hit.collider.gameObject.GetComponent<item>().itemScriptableObject, hit.collider.gameObject.GetComponent<item>().amount);
-                Destroy(hit.collider.gameObject);
-
+                if(hit.collider.gameObject.GetComponent<item>() != null)
+                {
+                    AddItem(hit.collider.gameObject.GetComponent<item>().itemScriptableObject, hit.collider.gameObject.GetComponent<item>().amount);
+                    Destroy(hit.collider.gameObject);
+                }
             }
+            Debug.DrawRay(ray.origin,ray.direction * reachDistance,Color.green);
         }
         else
         {
@@ -58,23 +64,30 @@ public class InventoryManager : MonoBehaviour
         }
     }
 
-    private void AddItem(ItemScriptableObject _item, int _amount)
+    private void AddItem(ItemScriptableObject item, int amount)
     {
+        
         foreach (InventorySlot slot in slots)
         {
-            if (slot.item == _item)
+            if (slot.item == item)
             {
-                slot.amount += _amount;
+                
+                slot.amount += amount;
+                slot.ItemAmountText.text = slot.amount.ToString();
                 return;
             }
         }
-
+        
         foreach (InventorySlot slot in slots)
         {
             if (slot.isEmpty == false)
             {
-                slot.item = _item;
-                slot.amount = _amount;
+                slot.item = item;
+                slot.amount = amount;
+                slot.isEmpty = false;
+                slot.SetIcon(item.icon);
+                slot.ItemAmountText.text = amount.ToString();
+                break;
             }
         }
     }

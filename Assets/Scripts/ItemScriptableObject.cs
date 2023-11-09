@@ -8,6 +8,7 @@ public class ItemScriptableObject : ScriptableObject
    public ItemType ItemType;
    public string itemName;
    public GameObject itemPrefab;
+   public Sprite icon;
    public int maximumAmout;
    public string itemDescription;
 
