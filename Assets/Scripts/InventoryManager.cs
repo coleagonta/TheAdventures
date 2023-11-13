@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class InventoryManager : MonoBehaviour
 {
     public GameObject UIPanel;
@@ -9,6 +10,7 @@ public class InventoryManager : MonoBehaviour
     private bool isOpened;
     public float reachDistance = 1000;
     private Camera mainCamera;
+   
    
 
     private void Awake()
@@ -46,24 +48,20 @@ public class InventoryManager : MonoBehaviour
 
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        if (Physics.Raycast(ray, out hit, reachDistance))
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            if (Input.GetKeyDown(KeyCode.E))
-            {
+             if (Physics.Raycast(ray, out hit, reachDistance))
+             {
+         
                 if (hit.collider.gameObject.GetComponent<item>() != null)
                 {
                     AddItem(hit.collider.gameObject.GetComponent<item>().itemScriptableObject,
-                        hit.collider.gameObject.GetComponent<item>().amount);
+                        hit.collider.gameObject.GetComponent<item>().amount); 
                     Destroy(hit.collider.gameObject);
                 }
-            }
-            Debug.DrawRay(ray.origin,ray.direction*reachDistance,Color.green);
+             } 
         }
-        else
-        {
-                Debug.DrawRay(ray.origin,ray.direction*reachDistance,Color.red);
-        }
-   
+        
     }
     
 
@@ -78,6 +76,7 @@ public class InventoryManager : MonoBehaviour
                 {
                     slot.amount += amount;
                     slot.ItemAmountText.text = slot.amount.ToString();
+                    return;
                 } 
                 break;
             }
@@ -85,7 +84,7 @@ public class InventoryManager : MonoBehaviour
         
         foreach (InventorySlot slot in slots)
         {
-            if (slot.isEmpty == false)
+            if (slot.isEmpty == true)
             {
                 slot.item = item;
                 slot.amount = amount;
@@ -97,9 +96,3 @@ public class InventoryManager : MonoBehaviour
         }
     }
 }
-
-
-
-
-
-

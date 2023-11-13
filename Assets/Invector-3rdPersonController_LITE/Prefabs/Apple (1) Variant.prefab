@@ -12,13 +12,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Apple (1) Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4218501641469566444, guid: c55ded251f37cb64aaa8f37a2f12b15f, type: 3}
+      propertyPath: amount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394995931617979506, guid: c55ded251f37cb64aaa8f37a2f12b15f, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394995931617979506, guid: c55ded251f37cb64aaa8f37a2f12b15f, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8394995931617979506, guid: c55ded251f37cb64aaa8f37a2f12b15f, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8394995931617979506, guid: c55ded251f37cb64aaa8f37a2f12b15f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.721497
+      value: 31.69
       objectReference: {fileID: 0}
     - target: {fileID: 8394995931617979506, guid: c55ded251f37cb64aaa8f37a2f12b15f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 64.435
+      value: 61.75
       objectReference: {fileID: 0}
     - target: {fileID: 8394995931617979506, guid: c55ded251f37cb64aaa8f37a2f12b15f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52,6 +68,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9068146003108812845, guid: c55ded251f37cb64aaa8f37a2f12b15f, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 13400000, guid: b13e3a928ea3ce147ab377c119d0b9e7, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
