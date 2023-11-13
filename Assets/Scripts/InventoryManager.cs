@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +9,7 @@ public class InventoryManager : MonoBehaviour
     private bool isOpened;
     public float reachDistance = 1000;
     private Camera mainCamera;
+   
 
     private void Awake()
     {
@@ -28,6 +28,7 @@ public class InventoryManager : MonoBehaviour
         }
         UIPanel.SetActive(false);
     }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -45,24 +46,26 @@ public class InventoryManager : MonoBehaviour
 
         Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
         RaycastHit hit;
-        
         if (Physics.Raycast(ray, out hit, reachDistance))
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                if(hit.collider.gameObject.GetComponent<item>() != null)
+                if (hit.collider.gameObject.GetComponent<item>() != null)
                 {
-                    AddItem(hit.collider.gameObject.GetComponent<item>().itemScriptableObject, hit.collider.gameObject.GetComponent<item>().amount);
+                    AddItem(hit.collider.gameObject.GetComponent<item>().itemScriptableObject,
+                        hit.collider.gameObject.GetComponent<item>().amount);
                     Destroy(hit.collider.gameObject);
                 }
             }
-            Debug.DrawRay(ray.origin,ray.direction * reachDistance,Color.green);
+            Debug.DrawRay(ray.origin,ray.direction*reachDistance,Color.green);
         }
         else
         {
-            Debug.DrawRay(ray.origin,ray.direction * reachDistance,Color.red);
+                Debug.DrawRay(ray.origin,ray.direction*reachDistance,Color.red);
         }
+   
     }
+    
 
     private void AddItem(ItemScriptableObject item, int amount)
     {
@@ -71,10 +74,12 @@ public class InventoryManager : MonoBehaviour
         {
             if (slot.item == item)
             {
-                
-                slot.amount += amount;
-                slot.ItemAmountText.text = slot.amount.ToString();
-                return;
+                if (slot.amount + amount <= item.maximumAmout)
+                {
+                    slot.amount += amount;
+                    slot.ItemAmountText.text = slot.amount.ToString();
+                } 
+                break;
             }
         }
         
@@ -92,6 +97,8 @@ public class InventoryManager : MonoBehaviour
         }
     }
 }
+
+
 
 
 

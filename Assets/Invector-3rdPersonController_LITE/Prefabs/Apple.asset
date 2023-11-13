@@ -16,6 +16,6 @@ MonoBehaviour:
   itemName: Apple
   itemPrefab: {fileID: 8808793736615797853, guid: e7754c60d2455a448a183f3d52e20295, type: 3}
   icon: {fileID: 21300000, guid: 08c63baa6e1892441aa95b64bfc2c00f, type: 3}
-  maximumAmout: 10
+  maximumAmout: 2
   itemDescription: 
   healAmount: 0
