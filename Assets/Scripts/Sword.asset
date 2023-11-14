@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 226e7243244f35048a3af1657c36b56f, type: 3}
-  m_Name: Apple
+  m_Name: Sword
   m_EditorClassIdentifier: 
-  ItemType: 1
-  itemName: Apple
-  itemPrefab: {fileID: 8808793736615797853, guid: e7754c60d2455a448a183f3d52e20295, type: 3}
-  icon: {fileID: 21300000, guid: 08c63baa6e1892441aa95b64bfc2c00f, type: 3}
-  maximumAmout: 2
+  ItemType: 0
+  itemName: Sword
+  itemPrefab: {fileID: 7182144209563036942, guid: 5c84e8f1f29cbe64186cf7235a7bd187, type: 3}
+  icon: {fileID: 21300000, guid: 96d38a45a32099943a03880f2e358263, type: 3}
+  maximumAmout: 1
   itemDescription: 
-  isConsumeable: 1
-  changeHealth: 10
+  isConsumeable: 0
+  changeHealth: 0
   healAmount: 0

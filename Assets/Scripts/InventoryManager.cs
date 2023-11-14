@@ -1,13 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 public class InventoryManager : MonoBehaviour
 {
-    public GameObject UIPanel;
+    [FormerlySerializedAs("UIPanel")] public GameObject UIPanel;
     public Transform InventoryPanel;
     public List<InventorySlot> slots = new List<InventorySlot>();
-    private bool isOpened;
+    public bool isOpened;
     public float reachDistance = 1000;
     private Camera mainCamera;
    
@@ -29,6 +30,7 @@ public class InventoryManager : MonoBehaviour
             }
         }
         UIPanel.SetActive(false);
+        
     }
 
     void Update()
@@ -38,10 +40,12 @@ public class InventoryManager : MonoBehaviour
             isOpened = !isOpened;
             if (isOpened)
             {
+                Cursor.lockState = CursorLockMode.Confined;
                 UIPanel.SetActive(true);
             }
             else
             {
+                Cursor.lockState = CursorLockMode.Locked;
                 UIPanel.SetActive(false);
             }
         }

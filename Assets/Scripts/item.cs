@@ -7,4 +7,5 @@ public class item : MonoBehaviour
 {
     public ItemScriptableObject itemScriptableObject;
     public int amount;
+    public int changeHealth;
 }
