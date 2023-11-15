@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class AttackController : MonoBehaviour
+public class PlayerAnimationController : MonoBehaviour
 {
     private Animator animator;
 
@@ -11,19 +11,10 @@ public class AttackController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0)) 
+        if (Input.GetMouseButtonDown(0))
         {
-           
-            Attack();
-        }
-    }
-
-    private void Attack()
-    {
-       
-        if (!animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-        {
-           
+            Debug.Log("Attack Triggered");
+            // Запуск анимации атаки
             animator.SetTrigger("Attack");
         }
     }
