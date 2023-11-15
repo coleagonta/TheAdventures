@@ -12,5 +12,7 @@ public class ItemScriptableObject : ScriptableObject
    public int maximumAmout;
    public string itemDescription;
    public bool isConsumeable;
+   
    public int changeHealth;
+   public string inHandName;
 }

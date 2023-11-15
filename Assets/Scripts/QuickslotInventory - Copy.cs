@@ -13,6 +13,8 @@ public class QuickslotInventory : MonoBehaviour
     public Sprite selectedSprite;
     public Sprite notSelectedSprite;
     public Text healthText;
+    public object activeSlot;
+    public InventorySlot ActiveSlot = null;
 
     // Update is called once per frame
     void Update()
