@@ -8,20 +8,23 @@ public class ZombieAi : MonoBehaviour
     [SerializeField] private float changePositionTime = 5f;
     [SerializeField] private float moveDistance = 10f;
     [SerializeField] private float movementSpeed;
-    
-
-    private void Awake()
+    private float TimeSave;
+    private void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _navMeshAgent.speed = movementSpeed;
-          _animator = GetComponent<Animator>();
+         _animator = GetComponent<Animator>();
         InvokeRepeating(nameof(RandomNavSphere),changePositionTime,changePositionTime);
     }
 
     private void Update()
     {
-       _animator.SetFloat("MoveSpeed",1);
-        MoveZombie();
+        if (Time.time > TimeSave)
+        {
+            MoveZombie();
+            TimeSave = Time.time + 5;
+        }
+    
     }
 
     Vector3 RandomNavSphere(float distance)
@@ -40,4 +43,5 @@ public class ZombieAi : MonoBehaviour
     {
         _navMeshAgent.SetDestination(RandomNavSphere(moveDistance));
     }
+    
 }
