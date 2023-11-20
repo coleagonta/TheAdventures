@@ -5286,7 +5286,7 @@ GameObject:
   - component: {fileID: 472045012}
   - component: {fileID: 472045011}
   - component: {fileID: 472045010}
-  - component: {fileID: 472045016}
+  - component: {fileID: 472045018}
   m_Layer: 0
   m_Name: Person
   m_TagString: Player
@@ -5462,21 +5462,6 @@ Transform:
   - {fileID: 797157725}
   m_Father: {fileID: 618809242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &472045016
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 472045009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ec8ecaf695292a488e3c881e7ad990b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackDamage: 100
-  attackRadius: 2
-  maxHealth: 100
 --- !u!114 &472045017
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5491,6 +5476,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelHealth: 100
   MyText: {fileID: 994311116}
+--- !u!114 &472045018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 472045009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8ec8ecaf695292a488e3c881e7ad990b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &478803632
 GameObject:
   m_ObjectHideFlags: 0
